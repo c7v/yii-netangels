@@ -1,0 +1,29 @@
+{
+    "name": "c7v/yii-netangels",
+    "description": "Пакет позволяющий работать с услугами хостинг провайдера NetAngels",
+    "type": "package",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Артём Соколовский",
+            "email": "artem@sokolovsky.dev",
+            "role": "Developer",
+            "homepage": "https://sokolovsky.dev"
+        },
+        {
+            "name":"Max Alexandrov",
+            "email": "max@7u3.ru",
+            "role": "Architect",
+            "homepage": "https://github.com/maxodrom"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "yiisoft/yii2-httpclient": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "c7v\\yii_netangels\\": "src"
+        }
+    }
+}
