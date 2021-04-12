@@ -115,7 +115,7 @@ class NetAngels extends Component
     /**
      * @return Cron
      */
-    public function getCron()
+    public function getCronRequester()
     {
         $container = new Cron();
         $container::setHttpClient($this->_httpClient);
