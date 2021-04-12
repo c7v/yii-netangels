@@ -5,7 +5,6 @@ namespace c7v\yii_netangels\requesters\hosting;
 use c7v\yii_netangels\HttpClientException;
 use c7v\yii_netangels\requesters\BaseRequester;
 use yii\base\InvalidConfigException;
-use yii\helpers\ArrayHelper;
 
 /**
  * Class Container
@@ -34,7 +33,7 @@ class Container extends BaseRequester
         $request = self::$_httpClient
             ->initHttpRequest(self::URL)
             ->setMethod('POST')
-            ->setData(ArrayHelper::merge([
+            ->setData(array_merge([
                 'name' => $name,
                 'memory_limit' => $memory_limit,
                 'quota' => $quota,
@@ -73,7 +72,7 @@ class Container extends BaseRequester
      */
     public function getById(int $id){
         $request = self::$_httpClient
-            ->initHttpRequest(self::URL.''.$id)
+            ->initHttpRequest(self::URL.$id)
             ->setMethod('GET');
 
         return $this->processResponse($request);
@@ -139,7 +138,7 @@ class Container extends BaseRequester
      */
     public function update(int $id, array $config){
         $request = self::$_httpClient
-            ->initHttpRequest(self::URL.''.$id)
+            ->initHttpRequest(self::URL.$id)
             ->setMethod('PUT')
             ->setData($config);
 
@@ -183,7 +182,7 @@ class Container extends BaseRequester
      */
     public function delete(int $id){
         $request = self::$_httpClient
-            ->initHttpRequest(self::URL.''.$id)
+            ->initHttpRequest(self::URL.$id)
             ->setMethod('DELETE');
 
         return $this->processResponse($request);

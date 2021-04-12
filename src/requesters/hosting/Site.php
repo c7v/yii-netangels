@@ -4,7 +4,6 @@ namespace c7v\yii_netangels\requesters\hosting;
 
 use c7v\yii_netangels\requesters\BaseRequester;
 use yii\base\InvalidConfigException;
-use yii\helpers\ArrayHelper;
 
 /**
  * Class Site
@@ -28,7 +27,7 @@ class Site extends BaseRequester
         $request = self::$_httpClient
             ->initHttpRequest(self::URL)
             ->setMethod('POST')
-            ->setData(ArrayHelper::merge([
+            ->setData(array_merge([
                 'container_id' => $container_id,
                 'name' => $name,
                 'engine' => $engine,
