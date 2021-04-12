@@ -16,6 +16,7 @@ use yii\base\Component;
 class NetAngels extends Component
 {
     const BASE_API_URL = 'https://api-ms.netangels.ru/api/v1/';
+    const T_MSG = 'netangels';
 
     /**
      * @var string
