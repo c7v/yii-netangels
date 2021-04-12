@@ -2,7 +2,7 @@
 
 namespace c7v\yii_netangels;
 
-use c7v\yii_netangels\requesters\hosting\Container;
+use c7v\yii_netangels\requesters\hosting\ContainerRequester;
 use c7v\yii_netangels\requesters\hosting\Cron;
 use c7v\yii_netangels\requesters\hosting\DataBase;
 use c7v\yii_netangels\requesters\hosting\Site;
@@ -70,14 +70,14 @@ class NetAngels extends Component
 
 
     /**
-     * @return Container
+     * @return ContainerRequester
      */
     public function getContainerRequester()
     {
-        $container = new Container();
-        $container::setHttpClient($this->_httpClient);
+        $containerRequester = new ContainerRequester();
+        $containerRequester::setHttpClient($this->_httpClient);
 
-        return $container;
+        return $containerRequester;
     }
 
     /**

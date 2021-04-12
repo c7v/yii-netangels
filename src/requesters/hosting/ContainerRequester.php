@@ -4,13 +4,16 @@ namespace c7v\yii_netangels\requesters\hosting;
 
 use c7v\yii_netangels\HttpClientException;
 use c7v\yii_netangels\requesters\BaseRequester;
+use c7v\yii_netangels\requesters\models\Container;
 use yii\base\InvalidConfigException;
+use yii\data\ArrayDataProvider;
+use yii\httpclient\Request;
 
 /**
- * Class Container
+ * Class ContainerRequester
  * @package c7v\yii_netangels\requesters\hosting
  */
-class Container extends BaseRequester
+class ContainerRequester extends BaseRequester
 {
     const URL = 'hosting/containers/';
 
@@ -18,13 +21,37 @@ class Container extends BaseRequester
     const ENVIRONMENT_VIRTUAL_HOST = 1;
     const ENVIRONMENT_CLOUD_HOST_NEW = 2;
 
+
+    protected function processResponse(Request $request, string $calledMethod = null)
+    {
+        $response = parent::processResponse($request, $calledMethod);
+
+        // todo: проверить, если c $response все ОК
+        // создание контейнера
+        if ($calledMethod == 'create') {
+            return new Container();
+        }
+        // список контейнеров
+        elseif ($calledMethod == 'getList') {
+            return new ArrayDataProvider([
+                'modelClass' => Container::class,
+                'allModels' => $response['entities'],
+            ]);
+        }
+        // информация о контейнере
+        elseif ($calledMethod == 'getById') {
+            return new Container();
+        }
+        // удаление контейнера
+    }
+
     /**
      * @param string $name
      * @param int $memory_limit
      * @param int $quota
      * @param int $environment
      * @param array $config
-     * @return array
+     * @return Container[]
      * @throws InvalidConfigException
      * @throws \yii\httpclient\Exception
      */
@@ -40,7 +67,7 @@ class Container extends BaseRequester
                 'environment' => $environment,
             ], $config));
 
-        return $this->processResponse($request);
+        return $this->processResponse($request, __METHOD__);
     }
 
     /**

@@ -40,7 +40,7 @@ abstract class BaseRequester extends Model
      * @throws \c7v\yii_netangels\ApiCallException
      * @throws \yii\httpclient\Exception
      */
-    protected function processResponse(Request $request)
+    protected function processResponse(Request $request, string $calledMethod = null)
     {
         $this->apiCallErrors = [];
 
@@ -48,6 +48,8 @@ abstract class BaseRequester extends Model
         $content = Json::decode($response->getContent());
 
         if ($response->getIsOk()) {
+
+
             return $content;
         } else {
             foreach ($content['errors'] as $key => $errors) {
