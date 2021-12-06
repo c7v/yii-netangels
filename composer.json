@@ -3,6 +3,7 @@
     "description": "Пакет позволяющий работать с услугами хостинг провайдера NetAngels",
     "type": "package",
     "license": "BSD-3-Clause",
+    "minimum-stability": "beta",
     "authors": [
         {
             "name": "Артём Соколовский",
