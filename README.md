@@ -1,6 +1,6 @@
 # Yii NetAngels
 
-[![VK](https://github.com/c7v/c7v/raw/master/src/img/label_vk.svg)](https://vk.com/sokolovsky.artem)
+[![Latest Stable Version](http://poser.pugx.org/c7v/yii-netangels/v)](https://packagist.org/packages/c7v/yii-netangels) [![Total Downloads](http://poser.pugx.org/c7v/yii-netangels/downloads)](https://packagist.org/packages/c7v/yii-netangels) [![Latest Unstable Version](http://poser.pugx.org/c7v/yii-netangels/v/unstable)](https://packagist.org/packages/c7v/yii-netangels) [![License](http://poser.pugx.org/c7v/yii-netangels/license)](https://packagist.org/packages/c7v/yii-netangels) [![PHP Version Require](http://poser.pugx.org/c7v/yii-netangels/require/php)](https://packagist.org/packages/c7v/yii-netangels)
 
 Пакет позволяет работать с услугами хостинг провайдера [NetAngels](https://netangels.ru/?p_ref=u73699) через API.
 Документация по API находится на [api.netangels.ru](https://api.netangels.ru), документация по пакету находится
