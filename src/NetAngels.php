@@ -2,6 +2,9 @@
 
 namespace c7v\yii_netangels;
 
+use c7v\yii_netangels\requesters\email\MailBoxes;
+use c7v\yii_netangels\requesters\email\MailDomains;
+use c7v\yii_netangels\requesters\email\MailOther;
 use c7v\yii_netangels\requesters\hosting\Container;
 use c7v\yii_netangels\requesters\hosting\Cron;
 use c7v\yii_netangels\requesters\hosting\DataBase;
@@ -118,6 +121,39 @@ class NetAngels extends Component
     public function getCronRequester()
     {
         $container = new Cron();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Cron
+     */
+    public function getMailBoxesRequester()
+    {
+        $container = new MailBoxes();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Cron
+     */
+    public function getMailDomainsRequester()
+    {
+        $container = new MailDomains();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Cron
+     */
+    public function getMailOtherRequester()
+    {
+        $container = new MailOther();
         $container::setHttpClient($this->_httpClient);
 
         return $container;
