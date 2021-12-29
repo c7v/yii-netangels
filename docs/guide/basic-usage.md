@@ -46,7 +46,7 @@ $ssl = $netAngels->getSslRequester()->orderingNewCertificate('sokolovsky.dev', [
 ]);
 ```
 
-## Не обязательные параметры:
+## Необязательные параметры:
 
 Все не обязательные параметры, передаются в массиве в конце методов: array $config = []
 
