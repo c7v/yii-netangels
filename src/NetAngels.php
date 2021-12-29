@@ -5,9 +5,11 @@ namespace c7v\yii_netangels;
 use c7v\yii_netangels\requesters\email\MailBoxes;
 use c7v\yii_netangels\requesters\email\MailDomains;
 use c7v\yii_netangels\requesters\email\MailOther;
+use c7v\yii_netangels\requesters\hosting\Certificates;
 use c7v\yii_netangels\requesters\hosting\Container;
 use c7v\yii_netangels\requesters\hosting\Cron;
 use c7v\yii_netangels\requesters\hosting\DataBase;
+use c7v\yii_netangels\requesters\hosting\Keys;
 use c7v\yii_netangels\requesters\hosting\Site;
 use c7v\yii_netangels\requesters\hosting\SshKey;
 use yii\base\Component;
@@ -160,11 +162,22 @@ class NetAngels extends Component
     }
 
     /**
-     * @return MailOther
+     * @return Certificates
      */
     public function getSslRequester()
     {
-        $container = new MailOther();
+        $container = new Certificates();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Keys
+     */
+    public function getSshRequester()
+    {
+        $container = new Keys();
         $container::setHttpClient($this->_httpClient);
 
         return $container;
