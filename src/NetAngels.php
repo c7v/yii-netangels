@@ -127,7 +127,7 @@ class NetAngels extends Component
     }
 
     /**
-     * @return Cron
+     * @return MailBoxes
      */
     public function getMailBoxesRequester()
     {
@@ -138,7 +138,7 @@ class NetAngels extends Component
     }
 
     /**
-     * @return Cron
+     * @return MailDomains
      */
     public function getMailDomainsRequester()
     {
@@ -149,9 +149,20 @@ class NetAngels extends Component
     }
 
     /**
-     * @return Cron
+     * @return MailOther
      */
     public function getMailOtherRequester()
+    {
+        $container = new MailOther();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return MailOther
+     */
+    public function getSslRequester()
     {
         $container = new MailOther();
         $container::setHttpClient($this->_httpClient);
