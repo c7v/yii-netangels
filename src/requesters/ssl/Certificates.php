@@ -7,8 +7,8 @@ use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 
 /**
- * Class Site
- * @package c7v\yii_netangels\requesters\hosting
+ * Class Certificates
+ * @package c7v\yii_netangels\requesters\ssl
  */
 class Certificates extends BaseRequester
 {
