@@ -2,6 +2,14 @@
 
 namespace c7v\yii_netangels;
 
+use c7v\yii_netangels\requesters\cloud\Access;
+use c7v\yii_netangels\requesters\cloud\Backups;
+use c7v\yii_netangels\requesters\cloud\Disks;
+use c7v\yii_netangels\requesters\cloud\Image;
+use c7v\yii_netangels\requesters\cloud\Lan;
+use c7v\yii_netangels\requesters\cloud\Ssh;
+use c7v\yii_netangels\requesters\cloud\Tariff;
+use c7v\yii_netangels\requesters\cloud\Vds;
 use c7v\yii_netangels\requesters\email\MailBoxes;
 use c7v\yii_netangels\requesters\email\MailDomains;
 use c7v\yii_netangels\requesters\email\MailOther;
@@ -178,6 +186,94 @@ class NetAngels extends Component
     public function getSshRequester()
     {
         $container = new Keys();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Vds
+     */
+    public function getVdsRequester()
+    {
+        $container = new Vds();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Image
+     */
+    public function getImageRequester()
+    {
+        $container = new Image();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Tariff
+     */
+    public function getTariffRequester()
+    {
+        $container = new Tariff();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Disks
+     */
+    public function getDiskRequester()
+    {
+        $container = new Disks();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Lan
+     */
+    public function getLanRequester()
+    {
+        $container = new Lan();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Ssh
+     */
+    public function getSshVdsRequester()
+    {
+        $container = new Ssh();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Access
+     */
+    public function getAccessRequester()
+    {
+        $container = new Access();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Backups
+     */
+    public function getBackupsRequester()
+    {
+        $container = new Backups();
         $container::setHttpClient($this->_httpClient);
 
         return $container;
