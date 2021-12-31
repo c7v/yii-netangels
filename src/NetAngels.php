@@ -5,13 +5,13 @@ namespace c7v\yii_netangels;
 use c7v\yii_netangels\requesters\email\MailBoxes;
 use c7v\yii_netangels\requesters\email\MailDomains;
 use c7v\yii_netangels\requesters\email\MailOther;
-use c7v\yii_netangels\requesters\hosting\Certificates;
 use c7v\yii_netangels\requesters\hosting\Container;
 use c7v\yii_netangels\requesters\hosting\Cron;
 use c7v\yii_netangels\requesters\hosting\DataBase;
-use c7v\yii_netangels\requesters\hosting\Keys;
 use c7v\yii_netangels\requesters\hosting\Site;
 use c7v\yii_netangels\requesters\hosting\SshKey;
+use c7v\yii_netangels\requesters\ssl\Certificates;
+use c7v\yii_netangels\requesters\ssh\Keys;
 use yii\base\Component;
 
 /**

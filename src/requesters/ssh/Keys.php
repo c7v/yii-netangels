@@ -1,6 +1,6 @@
 <?php
 
-namespace c7v\yii_netangels\requesters\hosting;
+namespace c7v\yii_netangels\requesters\ssh;
 
 use c7v\yii_netangels\requesters\BaseRequester;
 use yii\base\InvalidConfigException;
