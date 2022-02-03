@@ -6,6 +6,7 @@ use c7v\yii_netangels\requesters\cloud\Access;
 use c7v\yii_netangels\requesters\cloud\Backups;
 use c7v\yii_netangels\requesters\cloud\Disks;
 use c7v\yii_netangels\requesters\cloud\Image;
+use c7v\yii_netangels\requesters\cloud\Ips;
 use c7v\yii_netangels\requesters\cloud\Lan;
 use c7v\yii_netangels\requesters\cloud\Ssh;
 use c7v\yii_netangels\requesters\cloud\Tariff;
@@ -274,6 +275,17 @@ class NetAngels extends Component
     public function getBackupsRequester()
     {
         $container = new Backups();
+        $container::setHttpClient($this->_httpClient);
+
+        return $container;
+    }
+
+    /**
+     * @return Ips
+     */
+    public function getIpsRequester()
+    {
+        $container = new Ips();
         $container::setHttpClient($this->_httpClient);
 
         return $container;
